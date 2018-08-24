@@ -61,3 +61,10 @@ void Platos::setValorPromedio(int vp){
     valorPromedio = vp;
 }
 
+string Platos::getNombrePlato(){
+    return nombrePlato;
+}
+
+void Platos::setNombrePlato(string p){
+    nombrePlato = p;
+}

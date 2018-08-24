@@ -11,11 +11,15 @@ class Platos{
         int vecesCocinado;
         int precio;
         int valorPromedio;
+        string nombrePlato;
 
     public:
         Platos();
 
-        Platos(int, string, int, int, int, int);
+        Platos(int, string, int, int, int, int, string);
+
+        string getNombrePlato();
+        void setNombrePlato(string);
 
         int getCantIngredientes();
         void setCantIngredientes(int);
