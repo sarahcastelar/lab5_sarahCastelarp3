@@ -46,6 +46,9 @@ int menu (){
 int main (){
     bodega = new Bodega();
     string nombreP = "";
+    bool continuar1 = false, continuar2 = false;
+    cout<<"Ingrese su nombre: "<<endl;
+    cin>>nombreP;
 	int opcion = 0;
 	while (opcion != 2){
 		switch (opcion = menu()){
@@ -55,9 +58,20 @@ int main (){
                     cout<<"["<<bodega->getIngredientes(i)->getNombre()<<"]";
                 }
 
-                cout<<"Inventario de los platos: "<<endl;
-                //imprimirlos aqui
+                cout<<endl;
 
+                cout<<"Inventario de los platos: "<<endl;
+                for(int i = 0;i < bodega->vectorPlatos.size();i++){
+                    cout<<"["<<bodega->getPlatos(i)->getNombrePlato()<<"]";
+                }
+
+                cout<<"\n\n Historial de Clientes y sus compras: "<<endl;
+                for(int i = 0;i < bodega->vectorClientes.size();i++){
+                    cout<<"Nombre: "<<bodega->getClientes(i)->getNombre()<<endl;
+                    for(int j = 0;j < bodega->vectorClientes[i]->platosConsumidos.size();j++){
+                        bodega->vectorClientes[i]->getPlatosConsumidos(j);
+                    }
+                }
 
 
 			break;
@@ -80,6 +94,7 @@ int main (){
                 temporal = new Ingredientes(nombre,tipo,duracion,cantSabor);
                 bodega->setIngredientes(temporal);
                 cout<<"Ingrediente agregado exitosamente. "<<endl;
+                continuar1 = true;
             } break;
 
             case 3:{
@@ -121,35 +136,36 @@ int main (){
                 plato1 = new Platos(cantIngredientes,descripcion,resultadoSabor,vecesCocinado,precio,valorPromedio, nombre);
                 bodega->setPlatos(plato1);
                 cout<<"plato agregado exitosamente. "<<endl;
-
+                continuar2 = true;
             }break;
 
             case 4: {
-                int promedio=-1, dinero=-1, numPlato=-1;
-                vector<Platos*> platosConsumidos;
-                //ensenar menuuuuu de platos
-                cout<<"Los platos disponibles son: "<<endl;
-                for(int i = 0;i < bodega->vectorPlatos.size();i++){
-                    cout<<"Plato #"<<i+1<<" : \n"<<bodega->getPlatos(i)->getNombrePlato()<<" \n Descripcion: \n"
-                    <<bodega->getPlatos(i)->getDescripcion()<<" \n Precio: "<<bodega->getPlatos(i)->getPrecio()<<
-                    ".Lps"<<endl;
-                }
+                if (continuar1 == true && continuar2 == true){
+                    int promedio=-1, dinero=-1, numPlato=-1;
+                    vector<Platos*> platosConsumidos;
+                    Clientes* cliente1;
+                    //ensenar menuuuuu de platos
+                    cout<<"Los platos disponibles son: "<<endl;
+                    for(int i = 0;i < bodega->vectorPlatos.size();i++){
+                        cout<<"Plato #"<<i+1<<" : \n"<<bodega->getPlatos(i)->getNombrePlato()<<" \n Descripcion: \n"
+                        <<bodega->getPlatos(i)->getDescripcion()<<" \n Precio: "<<bodega->getPlatos(i)->getPrecio()<<
+                        ".Lps"<<endl;
+                    }
 
-//                  Clientes::Clientes(string pNombre, int pPromedio, int pDinero, Platos* pPlatosConsumidos){
-                cout<<"Ingrese su nombre por favor. "<<endl;
-                cin >> nombreP;
-                cout<<"Ingrese numero del plato a comprar: "<<endl;
-                cin >> numPlato;
-                numPlato--;
-                dinero = bodega->vectorPlatos[numPlato]->getPrecio();
-                cout<<"Ingrese promedio que le da a su plato: "<<endl;
-                cin >> promedio;
-                platosConsumidos.push_back(bodega->vectorPlatos[numPlato]);
+                    cout<<"Ingrese numero del plato a comprar: "<<endl;
+                    cin >> numPlato;
+                    numPlato--;
+                    dinero = bodega->vectorPlatos[numPlato]->getPrecio();
+                    cout<<"Ingrese promedio que le da a su plato: "<<endl;
+                    cin >> promedio;
+                    platosConsumidos.push_back(bodega->vectorPlatos[numPlato]->getNombrePlato);
 
+                    cliente1 = new Clientes(nombreP,promedio,dinero,platosConsumidos);
+                    bodega->setClientes(cliente1);
+                    cout<<"venta existosa. "<<endl;
+                }else
+                    cout<<"tiene que agregar ingredientes y platos primero.";
                 
-                
-
-
             }break;
 
 

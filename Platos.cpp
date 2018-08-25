@@ -4,13 +4,14 @@
 #include <string>
 using namespace std;
 
-Platos::Platos(int pCantIngredientes, string pDescripcion, int pResultadoSabor, int pVecesCocinado, int pPrecio, int pValorPromedio){
+Platos::Platos(int pCantIngredientes, string pDescripcion, int pResultadoSabor, int pVecesCocinado, int pPrecio, int pValorPromedio, string pNombre){
     cantIngredientes = pCantIngredientes;
     descripcion = pDescripcion;
     resultadoSabor = pResultadoSabor;
     vecesCocinado = pVecesCocinado;
     precio = pPrecio;
     valorPromedio = pValorPromedio;
+    nombrePlato = pNombre;
 }
 
 int Platos::getCantIngredientes(){

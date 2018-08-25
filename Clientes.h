@@ -13,11 +13,12 @@ class Clientes{
         string nombre;
         int promedio;
         int dineroGastado;
-        vector<Platos*> platosConsumidos;
+        
 
 
     public:
-        Clientes(string nombre, int promedio, int dineroGastado, Platos* platosConsumidos);
+        vector<Platos*> platosConsumidos;
+        Clientes(string nombre, int promedio, int dineroGastado, vector<Platos*> platosConsumidos1);
 
         string getNombre();
         void setNombre(string);

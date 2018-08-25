@@ -5,11 +5,11 @@ using std::string;
 using namespace std;
 
 
-Clientes::Clientes(string pNombre, int pPromedio, int pDinero, Platos* pPlatosConsumidos){
+Clientes::Clientes(string pNombre, int pPromedio, int pDinero, vector<Platos*> pPlatosConsumidos1){
     nombre = pNombre;
     promedio = pPromedio;
     dineroGastado = pDinero;
-    platosConsumidos.push_back(pPlatosConsumidos);
+    platosConsumidos = pPlatosConsumidos1;
 }
 
 string Clientes::getNombre(){
