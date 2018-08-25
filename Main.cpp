@@ -67,10 +67,10 @@ int main (){
 
                 cout<<"\n\n Historial de Clientes y sus compras: "<<endl;
                 for(int i = 0;i < bodega->vectorClientes.size();i++){
-                    cout<<"Nombre: "<<bodega->getClientes(i)->getNombre()<<endl;
-                    for(int j = 0;j < bodega->vectorClientes[i]->platosConsumidos.size();j++){
-                        bodega->vectorClientes[i]->getPlatosConsumidos(j);
-                    }
+                    cout<<"Nombre: "<<bodega->getClientes(i)->getNombre()<<"\n Dinero Generado: "
+                    <<bodega->getClientes(i)->getDineroGastado()<<"\n Promedio: "<<
+                    bodega->getClientes(i)->getPromedio()<<endl;
+                    
                 }
 
 
@@ -158,7 +158,7 @@ int main (){
                     dinero = bodega->vectorPlatos[numPlato]->getPrecio();
                     cout<<"Ingrese promedio que le da a su plato: "<<endl;
                     cin >> promedio;
-                    platosConsumidos.push_back(bodega->vectorPlatos[numPlato]->getNombrePlato);
+                    platosConsumidos.push_back(bodega->vectorPlatos[numPlato]);
 
                     cliente1 = new Clientes(nombreP,promedio,dinero,platosConsumidos);
                     bodega->setClientes(cliente1);

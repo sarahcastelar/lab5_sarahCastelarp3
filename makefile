@@ -1,5 +1,6 @@
 main:	Bodega.o Clientes.o Ingredientes.o Main.o Platos.o 
-	g++ Bodega.o Clientes.o Ingredientes.o Main.o Platos.o -o main rm *.o
+	g++ Bodega.o Clientes.o Ingredientes.o Main.o Platos.o -o main
+	rm *.o
 
 main.o:	Main.cpp Bodega.h Clientes.h Ingredientes.h Platos.h 
 	g++ -c main.cpp
